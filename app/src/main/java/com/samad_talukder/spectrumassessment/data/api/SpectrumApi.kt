@@ -20,7 +20,7 @@ interface SpectrumApi {
 
     @GET("movie/{movieID}")
     suspend fun getMovieDetailsByID(
-        @Path("movieID") movieID: String,
+        @Path("movieID") movieID: Int,
         @Query("api_key") apiKey: String = API_KEY
     ): Response<MovieDetailsResponse>
 
