@@ -29,6 +29,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:background="@drawable/bg_shadow"
             app:srcCompat="@drawable/ic_back" />
 
         <ImageView
