@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".app.SpectrumApp"
@@ -15,7 +16,11 @@
         android:theme="@style/Theme.SPECTRUMHomeAssessment"
         tools:targetApi="31">
         <activity
+            android:name=".ui.features.MovieDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.SPECTRUMHomeAssessment.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
