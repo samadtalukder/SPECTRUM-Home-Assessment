@@ -29,7 +29,7 @@ interface SpectrumApi {
         @Query("api_key") apiKey: String = API_KEY
     ): Response<GenreMovieListResponse>
 
-    @GET("search/movie/")
+    @GET("search/movie")
     suspend fun getSearchMovie(
         @Query("query") query: String,
         @Query("page") page: Int,

@@ -24,7 +24,7 @@ class MovieSearchViewModel @Inject constructor(
         _movieSearchResponse
 
 
-    fun getMovieByCategory(
+    fun getSearchMovie(
         query: String,
         page: Int
     ) = viewModelScope.launch {

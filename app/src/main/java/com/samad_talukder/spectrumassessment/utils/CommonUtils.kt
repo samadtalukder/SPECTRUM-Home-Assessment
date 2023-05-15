@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.samad_talukder.spectrumassessment.R
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -20,6 +22,9 @@ import java.util.Objects.isNull
 
 @RequiresApi(Build.VERSION_CODES.O)
 fun convertDate(date: String): String {
+    if (date.isBlank()) {
+        return ""
+    }
     val mDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
     val formatter = DateTimeFormatter.ofPattern("dd MMM yyyy")
     return mDate.format(formatter)
@@ -32,6 +37,15 @@ fun loadImage(context: Context, imageUrl: String, imageView: ImageView) {
         .placeholder(R.drawable.ic_logo)
         .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL))
         .into(imageView)
+}
+
+fun ratingFormat(rating: Double): String {
+    val df: DecimalFormat = getDecimalFormat("#.#")
+    return df.format(rating)
+}
+
+fun getDecimalFormat(pattern: String): DecimalFormat {
+    return DecimalFormat(pattern, DecimalFormatSymbols(Locale.US))
 }
 
 fun getGenreText(genreIds: Int): String {

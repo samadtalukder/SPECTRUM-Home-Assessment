@@ -3,13 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/black_500"
     android:orientation="vertical">
 
-    <include
+    <!--<include
         android:id="@+id/mainToolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar" />-->
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_700"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="Spectrum"
+        app:titleTextColor="@color/white"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navHostFragment"

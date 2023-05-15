@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:background="@color/black_700"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/bg_shadow"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/search"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_search"
+        android:background="@color/black_500"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_movie" />
+
+</RelativeLayout>

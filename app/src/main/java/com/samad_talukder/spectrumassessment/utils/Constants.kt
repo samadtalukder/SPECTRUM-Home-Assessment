@@ -9,6 +9,7 @@ object Constants {
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original"
     const val MOVIE_ID = "movie_id"
+    const val INTENT_KEY_SEARCH_DATA = "search_data"
 
 
 }
