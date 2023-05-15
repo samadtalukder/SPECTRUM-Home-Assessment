@@ -66,7 +66,9 @@ class MovieItemAdapter(private val context: Context) :
 
                 }
 
-                loadImage(context, movie.poster_path, ivPoster)
+                if (!movie.poster_path.isNullOrEmpty()) {
+                    loadImage(context, movie.poster_path, ivPoster)
+                }
 
                 cvPoster.setOnClickListener {
                     onClick?.invoke(
