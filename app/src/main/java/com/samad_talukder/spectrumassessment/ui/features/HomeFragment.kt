@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.samad_talukder.spectrumassessment.data.api.ApiResult
 import com.samad_talukder.spectrumassessment.databinding.FragmentHomeBinding
-import com.samad_talukder.spectrumassessment.domain.model.MovieItem
+import com.samad_talukder.spectrumassessment.domain.model.Movie
 import com.samad_talukder.spectrumassessment.ui.adapter.MovieItemAdapter
 import com.samad_talukder.spectrumassessment.ui.viewmodel.MovieByCategoryViewModel
 import com.samad_talukder.spectrumassessment.utils.Constants.MOVIE_ID
@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -40,14 +40,14 @@ class HomeFragment : Fragment() {
 
         binding.apply {
             tvError.visibility = View.GONE
-            rvJobList.visibility = View.VISIBLE
+            rvMovieList.visibility = View.VISIBLE
 
             val layoutManager = GridLayoutManager(requireActivity(), 2)
-            rvJobList.layoutManager = layoutManager
-            rvJobList.setHasFixedSize(true)
+            rvMovieList.layoutManager = layoutManager
+            rvMovieList.setHasFixedSize(true)
 
             movieItemAdapter = MovieItemAdapter(requireActivity())
-            rvJobList.adapter = movieItemAdapter
+            rvMovieList.adapter = movieItemAdapter
 
         }
 
@@ -85,10 +85,10 @@ class HomeFragment : Fragment() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun showList(results: List<MovieItem>) {
+    private fun showList(results: List<Movie>) {
 
         binding.apply {
-            rvJobList.visibility = View.VISIBLE
+            rvMovieList.visibility = View.VISIBLE
             movieItemAdapter.jobList += results
             movieItemAdapter.notifyDataSetChanged()
 

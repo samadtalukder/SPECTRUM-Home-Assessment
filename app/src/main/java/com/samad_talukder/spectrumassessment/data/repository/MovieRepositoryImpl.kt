@@ -20,9 +20,7 @@ class MovieRepositoryImpl @Inject constructor(private val movieDataSource: Movie
         page: Int
     ): Flow<ApiResult<MovieResponse>> {
         return flow {
-            emit(
-                safeApiCall { movieDataSource.getMovieByCategoryDataSource(movieCategory, page) }
-            )
+            emit(safeApiCall { movieDataSource.getMovieByCategoryDataSource(movieCategory, page) })
         }.flowOn(Dispatchers.IO)
     }
 
