@@ -2,7 +2,6 @@ package com.samad_talukder.spectrumassessment.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.samad_talukder.spectrumassessment.data.api.ApiResult
@@ -20,7 +19,7 @@ class MovieByCategoryViewModel @Inject constructor(
 
     private val _movieCategoryResponse: MutableLiveData<ApiResult<MovieResponse>> =
         MutableLiveData()
-    val movieCategoryResponse: LiveData<ApiResult<MovieResponse>> =
+    val movieCategoryResponse: MutableLiveData<ApiResult<MovieResponse>> =
         _movieCategoryResponse
 
 
@@ -28,8 +27,6 @@ class MovieByCategoryViewModel @Inject constructor(
         movieCategory: String,
         page: Int
     ) = viewModelScope.launch {
-        _movieCategoryResponse.value = ApiResult.Loading
-
         movieByCategoryUseCase.execute(movieCategory, page).collect { values ->
             _movieCategoryResponse.value = values
         }
