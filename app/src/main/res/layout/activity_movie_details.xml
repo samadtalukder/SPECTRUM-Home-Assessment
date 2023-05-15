@@ -153,8 +153,8 @@
 
                         <ImageView
                             android:id="@+id/ivRating"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
                             app:srcCompat="@drawable/ic_rating" />
 
                         <TextView
@@ -184,7 +184,7 @@
                         android:layout_height="wrap_content"
                         android:text="Release"
                         android:layout_marginTop="5dp"
-                        android:textColor="@color/white"
+                        android:textColor="@color/color_primary"
                         android:textSize="12sp" />
                 </LinearLayout>
 
