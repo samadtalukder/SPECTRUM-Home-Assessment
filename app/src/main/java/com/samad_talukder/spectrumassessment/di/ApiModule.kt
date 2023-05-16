@@ -30,7 +30,6 @@ object ApiModule {
         return loggingInterceptor
     }
 
-
     @Singleton
     @Provides
     fun provideConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
@@ -60,7 +59,6 @@ object ApiModule {
             .addConverterFactory(gsonConverterFactory)
             .build()
     }
-
 
     @Singleton
     @Provides
