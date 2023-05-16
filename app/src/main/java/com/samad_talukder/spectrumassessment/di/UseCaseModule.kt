@@ -1,17 +1,13 @@
 package com.samad_talukder.spectrumassessment.di
 
-
+import com.samad_talukder.spectrumassessment.data.repository.FavouriteRepository
 import com.samad_talukder.spectrumassessment.data.repository.MovieRepository
-import com.samad_talukder.spectrumassessment.domain.usecase.MovieByCategoryUseCase
-import com.samad_talukder.spectrumassessment.domain.usecase.MovieDetailsByIDUseCase
-import com.samad_talukder.spectrumassessment.domain.usecase.MovieGenreListUseCase
-import com.samad_talukder.spectrumassessment.domain.usecase.MovieSearchUseCase
+import com.samad_talukder.spectrumassessment.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -39,5 +35,17 @@ class UseCaseModule {
     @Provides
     fun provideMovieSearchUseCase(movieRepository: MovieRepository): MovieSearchUseCase {
         return MovieSearchUseCase(movieRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideAddFavouriteUseCase(movieRepository: FavouriteRepository): AddFavouriteUseCase {
+        return AddFavouriteUseCase(movieRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideIsFavouriteUseCase(movieRepository: FavouriteRepository): IsFavouriteUseCase {
+        return IsFavouriteUseCase(movieRepository)
     }
 }
