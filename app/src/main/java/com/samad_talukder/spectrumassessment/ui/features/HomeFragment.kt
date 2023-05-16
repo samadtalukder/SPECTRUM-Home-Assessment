@@ -14,13 +14,15 @@ import com.samad_talukder.spectrumassessment.databinding.FragmentHomeBinding
 import com.samad_talukder.spectrumassessment.domain.model.Movie
 import com.samad_talukder.spectrumassessment.ui.adapter.MovieItemAdapter
 import com.samad_talukder.spectrumassessment.ui.viewmodel.MovieByCategoryViewModel
+import com.samad_talukder.spectrumassessment.utils.Constants.ARGUMENT_KEY_CATEGORY
 import com.samad_talukder.spectrumassessment.utils.Constants.MOVIE_ID
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     private val movieByCategoryViewModel: MovieByCategoryViewModel by viewModels()
     private lateinit var movieItemAdapter: MovieItemAdapter
 
@@ -28,31 +30,32 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        observeMovieByCategory()
+        val category = arguments?.getString(ARGUMENT_KEY_CATEGORY)
 
-        binding.apply {
-            tvError.visibility = View.GONE
-            rvMovieList.visibility = View.VISIBLE
+        if (!category.isNullOrEmpty()) {
 
-            val layoutManager = GridLayoutManager(requireActivity(), 2)
-            rvMovieList.layoutManager = layoutManager
-            rvMovieList.setHasFixedSize(true)
+            binding.apply {
+                rvMovieList.visibility = View.VISIBLE
 
-            movieItemAdapter = MovieItemAdapter(requireActivity())
-            rvMovieList.adapter = movieItemAdapter
+                val layoutManager = GridLayoutManager(requireActivity(), 2)
+                rvMovieList.layoutManager = layoutManager
+                rvMovieList.setHasFixedSize(true)
 
+                movieItemAdapter = MovieItemAdapter(requireActivity())
+                rvMovieList.adapter = movieItemAdapter
+
+            }
+
+            observeMovieByCategory()
+            callMovieByCategoryAPI(category, 1)
         }
-
-        val category = "now_playing"
-        val page = 1
-        callMovieByCategoryAPI(category, page)
     }
 
     private fun callMovieByCategoryAPI(category: String, page: Int) {
