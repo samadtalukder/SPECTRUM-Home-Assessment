@@ -1,13 +1,9 @@
 package com.samad_talukder.spectrumassessment.utils
 
-import android.app.Activity
-import android.app.Dialog
 import android.content.Context
 import android.os.Build
-import android.view.View
-import android.view.Window
 import android.widget.ImageView
-import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -18,7 +14,6 @@ import java.text.DecimalFormatSymbols
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
-import java.util.Objects.isNull
 
 @RequiresApi(Build.VERSION_CODES.O)
 fun convertDate(date: String): String {
@@ -46,6 +41,10 @@ fun ratingFormat(rating: Double): String {
 
 fun getDecimalFormat(pattern: String): DecimalFormat {
     return DecimalFormat(pattern, DecimalFormatSymbols(Locale.US))
+}
+
+fun showToast(context: Context, message: String) {
+    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 }
 
 fun getGenreText(genreIds: Int): String {
