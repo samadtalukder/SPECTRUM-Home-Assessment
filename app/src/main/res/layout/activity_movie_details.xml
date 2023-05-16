@@ -33,7 +33,7 @@
             app:srcCompat="@drawable/ic_back" />
 
         <ImageView
-            android:id="@+id/favImageView"
+            android:id="@+id/ivFav"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_alignParentTop="true"
