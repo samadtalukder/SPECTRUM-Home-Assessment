@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.samad_talukder.spectrumassessment.databinding.ActivityMainBinding
 import com.samad_talukder.spectrumassessment.ui.features.SearchActivity
 import com.samad_talukder.spectrumassessment.utils.Constants.INTENT_KEY_SEARCH_DATA
@@ -20,6 +22,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.navHostFragment) as NavHostFragment
+
+        val navController = navHostFragment.navController
+        binding.bottomNav.setupWithNavController(navController)
 
     }
 
