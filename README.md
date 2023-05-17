@@ -76,4 +76,18 @@ The app uses MVVM [Model-View-ViewModel] architecture to have a unidirectional f
 * Connect your Android device to your computer or launch an emulator
 * Click the "Run" button in Android Studio and select your device/emulator
 
+## Output
+To watch a demonstration video:
+<p>
+<img height= "400" src="https://github.com/samadtalukder/SPECTRUM-Home-Assessment/blob/master/screenshoots/demo.gif" alt="Gif" />
+</p>
+<!--
+<p>
+  <img height= "700"  src="https://github.com/samadtalukder/SPECTRUM-Home-Assessment/blob/master/screenshoots/Screenshot_1.png" alt="SS1" />
+  <img height= "700"  src="https://github.com/samadtalukder/SPECTRUM-Home-Assessment/blob/master/screenshoots/Screenshot_2.png" alt="SS2" />
+  <img height= "700"  src="https://github.com/samadtalukder/SPECTRUM-Home-Assessment/blob/master/screenshoots/Screenshot_3.png" alt="SS3" />
+  <img height= "700"  src="https://github.com/samadtalukder/SPECTRUM-Home-Assessment/blob/master/screenshoots/Screenshot_4.png" alt="SS4" />
+</p>
+-->
+
 
